@@ -23,21 +23,3 @@ class Project(BaseModel):
     owner: User
     config: ModelConfig = Field(default_factory=ModelConfig)
     created_at: datetime = Field(default_factory=datetime.now)
-
-
-if __name__ == "__main__":
-    raw_data = {
-        "project_name": "GenAI",
-        "owner": {
-            "username": "mugni",
-            "email": "mugni@gmail.com",
-        },
-    }
-
-    try:
-        project = Project(**raw_data)
-        print("Data Valid")
-        print(project)
-    except Exception as e:
-        print("Data Invalid")
-        print(e)
